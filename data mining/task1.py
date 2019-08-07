@@ -41,10 +41,13 @@ for col in var_float:
 for col in var_int:
     data[col].fillna(0, inplace=True)
 
+
+"""任务2 - 特征工程（2天）
+特征衍生
+特征挑选：分别用IV值和随机森林等进行特征选择"""
+
 def drop_corr(df, threshold):
-    """
-    根据相关系数删除变量
-    """
+    #  根据相关系数删除变量
     df_corr = df.corr().abs()
     corr_index = np.where(df_corr >= threshold)
     drop_cols = [df_corr.columns[y] for x, y in zip(*corr_index)
