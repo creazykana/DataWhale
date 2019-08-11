@@ -13,6 +13,7 @@ import os
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.utils.multiclass import type_of_target
+from sklearn.linear_model import LogisticRegression
 
 os.chdir(r'E:\dataWhaleData')
 
@@ -429,4 +430,6 @@ for i in bin_cols:
     stats_all_df.append(feature_stats)
 
 
-
+lr = LogisticRegression()
+lr.fit(x_train, y_train)
+y_predict = lr.predict(x)
