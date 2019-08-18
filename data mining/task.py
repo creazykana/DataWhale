@@ -202,3 +202,10 @@ print('最优参数: ',gs.best_params_)
 print('最佳性能: ', gs.best_score_)
 y_predict = gs.predict(X_test)
 modEffect(y_test, y_predict)
+
+
+from mlxtend.classifier import StackingClassifier
+sclf = StackingClassifier(classifiers=[xgb, rf],meta_classifier=lr)
+sclf.fit(X_train, y_train)
+y_predict = sclf.predict(X_test)
+modEffect(y_test, y_predict)
